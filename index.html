@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peta Tempat PKL di Kota Sukabumi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="docs/images/favicon.ico"
+    />
+    <style>
+      #map {
+        height: 400px;
+        width: 700px;
+        display: flex;
+        justify-content: center;
+      }
+      .leaflet-popup-content {
+        width: 100px;
+        text-align: center;
+      }
+
+      .leaflet-popup-content b {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .leaflet-popup-content br {
+        margin-bottom: 10px;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  </head>
+
+  <body>
+    <div id="map"></div>
+  </body>
+
+  <script>
+    var map = L.map("map").setView([-6.9181, 106.9267], 12);
+
+    // Tambahkan layer peta dari OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Tambahkan penanda mixue
+    var pklIcon = L.icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/1584/1584961.png",
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+
+    // script.js
+    // Tambahkan marker dan pop-up
+    var pklLocations = [
+      {
+        name: "BPS Kota Sukabumi",
+        location: [-6.9098766026118295, 106.93582085696141],
+        address:
+          "Jl. Selabintana No.14, Cikole, Kec. Cikole, Kota Sukabumi, Jawa Barat 43113",
+      },
+      {
+        name: "BPJS Kesehatan Cabang Sukabumi",
+        location: [-6.911037550182202, 106.93546680537918],
+        address:
+          "Jl. Siliwangi No.120-122, Cikole, Kec. Cikole, Kota Sukabumi, Jawa Barat 43111",
+      },
+      {
+        name: "Kementerian Agraria dan Tata Ruang BPN Kota Sukabumi",
+        location: [-6.912518006633235, 106.93491963457727],
+        address:
+          "Jl. Siliwangi No.127, Cikole, Kec. Cikole, Kota Sukabumi, Jawa Barat 43113",
+      },
+      {
+        name: "Gerai Indosat Ooredoo Hutchison Sukabumi",
+        location: [-6.916461853443381, 106.93017871338824],
+        address:
+          "Jl. Surya Kencana No.36, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114",
+      },
+      {
+        name: "Perpustakaan Umum Kota Sukabumi",
+        location: [-6.9172662782890875, 106.93115502684893],
+        address:
+          "Jl Perpustakaan No.3, Cikole, Kec. Cikole, Kota Sukabumi, Jawa Barat 43113",
+      },
+      {
+        name: "Radar Sukabumi.",
+        location: [-6.896198315188741, 106.9388267477444],
+        address:
+          "Jl. Selabintana kp. panjalu desa No.105, Warnasari, Kab. Sukabumi, Kabupaten Sukabumi, Jawa Barat 43151",
+      },
+      {
+        name: "Dinas Kependudukan dan Pencatatan Sipil Kota Sukabumi",
+        location: [-6.911343653303687, 106.93109101801015],
+        address:
+          "Jl. Bhayangkara No.224/84, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114",
+      },
+      {
+        name: "BCA KCU SUKABUMI",
+        location: [-6.920938823190803, 106.92414305746314],
+        address:
+          "Jl. A. Yani No.33-35, Gunungparang, Kec. Cikole, Kota Sukabumi, Jawa Barat 43111",
+      },
+      {
+        name: "Bank Syariah Indonesia KC Sukabumi Sudirman",
+        location: [-6.920321029139478, 106.92242644303107],
+        address:
+          "Jl. Sudirman No.112, Benteng, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43132",
+      },
+      {
+        name: "BSI KC Sukabumi A. Yani",
+        location: [-6.920960069071859, 106.92373536100169],
+        address:
+          "Jl. A. Yani No.29, Gunungparang, Kec. Cikole, Kota Sukabumi, Jawa Barat 43113",
+      },
+      {
+        name: "Bank BJB Kantor Cabang Sukabumi",
+        location: [-6.921045218894907, 106.92435763277982],
+        address:
+          "Jl. A. Yani No.35 A-37, Nyomplong, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43111",
+      },
+      {
+        name: "Dinas Dalduk, KB, P3A Dan PM",
+        location: [-6.9133975144463475, 106.92995785694906],
+        address:
+          "Ln .nh . . M. Yb, Jl. Kenari No.1A, Selabatu, Cikole, Sukabumi City, West Java 43114",
+      },
+      {
+        name: "Bappeda Kota Sukabumi",
+        location: [-6.94558909106231, 106.95270298267026],
+        address:
+          "Jl. Sarasa No.9, Babakan, Kec. Cibeureum, Kota Sukabumi, Jawa Barat 43142",
+      },
+      {
+        name: "Sukabumi Creative Hub",
+        location: [-6.916497079451826, 106.92968142499825],
+        address:
+          "3WMH+8VF, Jl. Kenari, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114",
+      },
+      {
+        name: "Dinas Komunikasi dan Informatika",
+        location: [-6.917733082861548, 106.93188513849067],
+        address:
+          "Jl. Syamsudin. SH No.25, Cikole, Kec. Cikole, Kota Sukabumi, Jawa Barat 43111",
+      },
+      {
+        name: "Sukabumi Update",
+        location: [-6.91721907531809, 106.9075355249982],
+        address:
+          "Jl. KH. Ahmad Sanusi No.195, Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43135",
+      },
+      {
+        name: "SAMSAT Sukabumi",
+        location: [-6.918315982805792, 106.92610708278364],
+        address:
+          "Jl. Masjid No.22, Gunungparang, Kec. Cikole, Kota Sukabumi, Jawa Barat 43112",
+      },
+
+      // Tambahkan lokasi Mixue lainnya di sini
+    ];
+
+    pklLocations.forEach(function (location) {
+      var marker = L.marker(location.location, { icon: pklIcon }).addTo(map);
+      marker.bindPopup("<b>" + location.name + "</b><br>" + location.address);
+    });
+  </script>
+</html>
